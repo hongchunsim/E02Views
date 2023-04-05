@@ -3,6 +3,7 @@ package net.skhu;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -39,6 +40,20 @@ public class SpinnersActivity extends AppCompatActivity {
         };
         Button button = (Button) findViewById(R.id.btnSave);
         button.setOnClickListener(listener1);
+
+        AdapterView.OnItemSelectedListener listener2 = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String s = stringArray[i];
+                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        };
+        spinner.setOnItemSelectedListener(listener2);
     }
 
 }
